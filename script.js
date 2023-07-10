@@ -1,8 +1,4 @@
 // Write a function that will randomly return "rock" "paper" "scissors"
-    // First we need a function that will return one of 3 numbers randomly
-    // Then we will have to assing each of these numbers to a text value
-
-
 function random() {
     return Math.floor(Math.random() * 3);
 }
@@ -23,10 +19,6 @@ function getComputerChoice() {
 }
 
 // Now we have to write a function that gets a choice from the player
-    // Create a variable that gets players choice 
-    // Make sure playes input is case insensitive
-    // Return players choice
-
 function getPlayerChoice() {
     choice = prompt("Your choice: ");
     choice = choice.toLowerCase();
@@ -72,3 +64,38 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+function decideWinner(playerScore, computerScore) {
+    console.log(`The score is ${playerScore}:${computerScore}`);
+    if (playerScore > computerScore) {
+        console.log("The Player wins!");
+    } else if (playerScore < computerScore) {
+        console.log("The Computer wins!");
+    } else {
+        console.log("The game ended in a tie!");
+    }
+}
+
+// Write a function that plays a 5 round game and keeps score and reports a winner or loser at the end
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let result = playRound(getPlayerChoice(), getComputerChoice());
+        console.log(result);
+
+        if (result.charAt(4) === "w") {
+            playerScore++;
+        } else if (result.charAt(4) === "l") {
+            computerScore++;
+        } else {
+            playerScore++;
+            computerScore++;
+        }
+    }
+
+    decideWinner(playerScore, computerScore);
+}
+
+game();
