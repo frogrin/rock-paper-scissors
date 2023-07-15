@@ -1,10 +1,5 @@
-// Write a function that will randomly return "rock" "paper" "scissors"
-function random() {
-    return Math.floor(Math.random() * 3);
-}
-
 function getComputerChoice() {
-    let num = random();
+    let num = Math.floor(Math.random() * 3);
     switch (num) {
         case 0:
             return "rock";
@@ -20,8 +15,7 @@ function getComputerChoice() {
 
 // Now we have to write a function that gets a choice from the player
 function getPlayerChoice() {
-    choice = prompt("Your choice: ");
-    choice = choice.toLowerCase();
+    choice = prompt("Your choice: ").toLowerCase();
     return choice;
 }
 // Then we will write a function that takes two parameters and decides on a winner and displays a message
@@ -29,34 +23,40 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         switch (computerSelection) {
             case "rock":
-                return "It's a tie!";
+                console.log("It's a tie!");
                 break;
             case "paper":
-                return "You lose! Paper beats Rock";
+                console.log("You lose! Paper beats Rock");
+                return "lost";
                 break;
             case "scissors":
-                return "You win! Rock beats Scissors!";
+                console.log("You win! Rock beats Scissors!");
+                return "won";
                 break;
         }
     } else if (playerSelection === "paper") {
         switch (computerSelection) {
             case "rock":
-                return "You win! Paper beats Rock";
+                console.log("You win! Paper beats Rock");
+                return "won";
                 break;
             case "paper":
-                return "It's a tie!";
+                console.log("It's a tie!");
                 break;
             case "scissors":
-                return "You lose! Scissors beat Paper";
+                console.log("You lose! Scissors beat Paper");
+                return "lost";
                 break;
         }
     } else if (playerSelection === "scissors") {
         switch (computerSelection) {
             case "rock":
-                return "You lose! Rock beats Scissors";
+                console.log("You lose! Rock beats Scissors");
+                return "lost";
                 break;
             case "paper":
-                return "You win! Scissors beat Paper";
+                console.log("You win! Scissors beat Paper");
+                return "won";
                 break;
             case "scissors":
                 return "It's a tie!";
@@ -82,15 +82,11 @@ function game() {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        let result = playRound(getPlayerChoice(), getComputerChoice());
-        console.log(result);
+        let result = playRound((getPlayerChoice()), getComputerChoice());
 
-        if (result.charAt(4) === "w") {
+        if (result === "won") {
             playerScore++;
-        } else if (result.charAt(4) === "l") {
-            computerScore++;
-        } else {
-            playerScore++;
+        } else if (result === "lost") {
             computerScore++;
         }
     }
