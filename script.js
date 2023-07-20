@@ -1,14 +1,11 @@
 const result = document.querySelector(".result");
 const score = document.querySelector(".score");
 
-const buttonRock = document.querySelector("#rock");
-buttonRock.addEventListener('click', () => playRound('rock', getComputerChoice()));
-
-const buttonPaper = document.querySelector("#paper");
-buttonPaper.addEventListener('click', () => playRound('paper', getComputerChoice()));
-
-const buttonScissors = document.querySelector("#scissors");
-buttonScissors.addEventListener('click', () => playRound('scissors', getComputerChoice()));
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(button => {
+  // Use the value of each button as an argument for playRound
+  button.addEventListener('click', (e) => playRound(e.target.value, getComputerChoice()));
+});
 
 let playerScore = 0;
 let computerScore = 0;
