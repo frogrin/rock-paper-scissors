@@ -18,12 +18,6 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-// Now we have to write a function that gets a choice from the player
-function getPlayerChoice() {
-    choice = prompt("Your choice: ").toLowerCase();
-    return choice;
-}
-
 function updateScore() {
   if (playerScore > computerScore && playerScore === 5) {
     score.textContent = `The Player won with the score ${playerScore}:${computerScore}`;
