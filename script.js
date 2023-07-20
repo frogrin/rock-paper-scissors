@@ -29,11 +29,9 @@ function updateScore() {
 } 
 // Then we will write a function that takes two parameters and decides on a winner and displays a message
 function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) result.textContent = "It's a tie!";
     if (playerSelection === "rock") {
         switch (computerSelection) {
-            case "rock":
-                result.textContent = "It's a tie!";
-                break;
             case "paper":
                 result.textContent = "You lose! Paper beats Rock";
                 computerScore++;
@@ -49,9 +47,6 @@ function playRound(playerSelection, computerSelection) {
                 result.textContent = "You win! Paper beats Rock";
                 playerScore++;
                 break;
-            case "paper":
-                result.textContent = "It's a tie!";
-                break;
             case "scissors":
                 result.textContent = "You lose! Scissors beat Paper";
                 computerScore++;
@@ -66,9 +61,6 @@ function playRound(playerSelection, computerSelection) {
             case "paper":
                 result.textContent = "You win! Scissors beat Paper";
                 playerScore++;
-                break;
-            case "scissors":
-                result.textContent = "It's a tie!";
                 break;
         }
     }
