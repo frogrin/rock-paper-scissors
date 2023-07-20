@@ -1,3 +1,12 @@
+const buttonRock = document.querySelector("#rock");
+buttonRock.addEventListener('click', () => playRound('rock', getComputerChoice()));
+
+const buttonPaper = document.querySelector("#paper");
+buttonPaper.addEventListener('click', () => playRound('paper', getComputerChoice()));
+
+const buttonScissors = document.querySelector("#scissors");
+buttonScissors.addEventListener('click', () => playRound('scissors', getComputerChoice()));
+
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * 3)];
