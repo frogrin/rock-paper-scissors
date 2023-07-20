@@ -1,16 +1,6 @@
 function getComputerChoice() {
-    let num = Math.floor(Math.random() * 3);
-    switch (num) {
-        case 0:
-            return "rock";
-            break;
-        case 1:
-            return "paper";
-            break;
-        case 2: 
-            return "scissors";
-            break;
-    }
+    const choices = ['rock', 'paper', 'scissors'];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 // Now we have to write a function that gets a choice from the player
@@ -64,34 +54,3 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-
-function decideWinner(playerScore, computerScore) {
-    console.log(`The score is ${playerScore}:${computerScore}`);
-    if (playerScore > computerScore) {
-        console.log("The Player wins!");
-    } else if (playerScore < computerScore) {
-        console.log("The Computer wins!");
-    } else {
-        console.log("The game ended in a tie!");
-    }
-}
-
-// Write a function that plays a 5 round game and keeps score and reports a winner or loser at the end
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let result = playRound((getPlayerChoice()), getComputerChoice());
-
-        if (result === "won") {
-            playerScore++;
-        } else if (result === "lost") {
-            computerScore++;
-        }
-    }
-
-    decideWinner(playerScore, computerScore);
-}
-
-game();
