@@ -1,3 +1,5 @@
+const result = document.querySelector(".result");
+
 const buttonRock = document.querySelector("#rock");
 buttonRock.addEventListener('click', () => playRound('rock', getComputerChoice()));
 
@@ -22,43 +24,37 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         switch (computerSelection) {
             case "rock":
-                console.log("It's a tie!");
+                result.textContent = "It's a tie!";
                 break;
             case "paper":
-                console.log("You lose! Paper beats Rock");
-                return "lost";
+                result.textContent = "You lose! Paper beats Rock";
                 break;
             case "scissors":
-                console.log("You win! Rock beats Scissors!");
-                return "won";
+                result.textContent = "You win! Rock beats Scissors!";
                 break;
         }
     } else if (playerSelection === "paper") {
         switch (computerSelection) {
             case "rock":
-                console.log("You win! Paper beats Rock");
-                return "won";
+                result.textContent = "You win! Paper beats Rock";
                 break;
             case "paper":
-                console.log("It's a tie!");
+                result.textContent = "It's a tie!";
                 break;
             case "scissors":
-                console.log("You lose! Scissors beat Paper");
-                return "lost";
+                result.textContent = "You lose! Scissors beat Paper";
                 break;
         }
     } else if (playerSelection === "scissors") {
         switch (computerSelection) {
             case "rock":
-                console.log("You lose! Rock beats Scissors");
-                return "lost";
+                result.textContent = "You lose! Rock beats Scissors";
                 break;
             case "paper":
-                console.log("You win! Scissors beat Paper");
-                return "won";
+                result.textContent = "You win! Scissors beat Paper";
                 break;
             case "scissors":
-                return "It's a tie!";
+                result.textContent = "It's a tie!";
                 break;
         }
     }
